@@ -1,0 +1,80 @@
+<div class="modalpopup">
+  <div class="header">
+    <h1>{{ title }}</h1>
+    <button mat-mini-fab color="warn" (click)="onCloseForm()" aria-label="Example icon button with a filter list icon">
+      <mat-icon>close</mat-icon>
+    </button> 
+  </div>
+  <div class="divider"></div>
+  <form class="example-form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput [formControl]="nombreFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ej. Javier">
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="!nombreFormControl.hasError('required')">
+        Formato incorrecto
+      </mat-error>
+      <mat-error *ngIf="nombreFormControl.hasError('required')">
+        Campo <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Apellido Paterno</mat-label>
+      <input type="text" matInput [formControl]="apellidoPFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ej. Madrazo">
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="!apellidoPFormControl.hasError('required')">
+        Formato obligatorio
+      </mat-error>
+      <mat-error *ngIf="apellidoPFormControl.hasError('required')">
+        Campo <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Apellido Materno</mat-label>
+      <input type="text" matInput [formControl]="apellidoMFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ej Ortiz">
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="!apellidoMFormControl.hasError('required')">
+        Formato incorrecto
+      </mat-error>
+      <mat-error *ngIf="apellidoMFormControl.hasError('required')">
+        Campo <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <input type="text" matInput [formControl]="direccionFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ej. Malacate 128">
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="!direccionFormControl.hasError('required')">
+        Formato incorrecto
+      </mat-error>
+      <mat-error *ngIf="direccionFormControl.hasError('required')">
+        Campo <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Telefono</mat-label>
+      <input type="text" matInput [formControl]="telefonoFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ej. 55 8553  4988">
+      <mat-hint></mat-hint>
+      <mat-error *ngIf="!telefonoFormControl.hasError('required')">
+        Formato incorrecto
+      </mat-error>
+      <mat-error *ngIf="telefonoFormControl.hasError('required')">
+        Campo <strong>obligatorio</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="divider"></div>
+
+    <button mat-raised-button color="primary">{{ button }}</button>
+
+  </form>
+</div>
